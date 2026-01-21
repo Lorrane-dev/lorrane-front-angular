@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Marca — Lorrane.dev</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --icone-size: 44px;
+        --texto-size: 22px;
+        --raio: 0.5rem;
+        --cinza-escuro: #18181b;
+        --gradiente: linear-gradient(135deg, hsl(270, 90%, 50%), hsl(217, 91%, 60%));
+      }
+
+      body {
+        margin: 0;
+        padding: 24px;
+        font-family: Inter, Arial, sans-serif;
+        background: #000;
+        color: #fff;
+      }
+
+      .linha {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+        flex-wrap: wrap;
+      }
+
+      .icone-container,
+      .icone-externo {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: var(--icone-size);
+        height: var(--icone-size);
+      }
+
+      .brilho-fundo {
+        position: absolute;
+        inset: 0;
+        border-radius: var(--raio);
+        background: var(--gradiente);
+        opacity: 0.2;
+        filter: blur(6px);
+        z-index: 0;
+      }
+
+      .icone-principal {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        border-radius: var(--raio);
+        background: var(--gradiente);
+        padding: 1px;
+        z-index: 1;
+      }
+
+      .icone-background {
+        width: 100%;
+        height: 100%;
+        border-radius: var(--raio);
+        background: var(--cinza-escuro);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .icone-svg {
+        width: 60%;
+        height: 60%;
+        display: block;
+      }
+
+      .logo-container {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        text-decoration: none;
+        color: inherit;
+      }
+
+      .logo-container:hover .icone-externo {
+        transform: scale(1.05);
+        transition: transform 0.2s;
+      }
+
+      .texto-logo {
+        font-weight: bold;
+        color: #fff;
+        font-size: var(--texto-size);
+      }
+
+      .texto-gradiente {
+        background: linear-gradient(90deg, hsl(270, 90%, 50%), hsl(217, 91%, 60%));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="linha">
+      <div class="icone-container" aria-label="Ícone Lorrane.dev">
+        <div class="brilho-fundo"></div>
+        <div class="icone-principal">
+          <div class="icone-background">
+            <svg viewBox="0 0 24 24" fill="none" class="icone-svg" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="gradienteIcone" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="hsl(270, 90%, 50%)" />
+                  <stop offset="100%" stop-color="hsl(217, 91%, 60%)" />
+                </linearGradient>
+              </defs>
+              <path
+                d="M7 4V17C7 18.1046 7.89543 19 9 19H18"
+                stroke="url(#gradienteIcone)"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M14 14L18 10M18 10V14M18 10H14"
+                stroke="url(#gradienteIcone)"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <circle cx="7" cy="4" r="1.5" fill="url(#gradienteIcone)" />
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <a href="#home" class="logo-container" aria-label="Logo Lorrane.dev">
+        <div class="icone-externo">
+          <div class="brilho-fundo"></div>
+          <div class="icone-principal">
+            <div class="icone-background">
+              <svg viewBox="0 0 24 24" fill="none" class="icone-svg" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="gradienteLogo" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="hsl(270, 90%, 50%)" />
+                    <stop offset="100%" stop-color="hsl(217, 91%, 60%)" />
+                  </linearGradient>
+                </defs>
+                <path
+                  d="M7 4V17C7 18.1046 7.89543 19 9 19H18"
+                  stroke="url(#gradienteLogo)"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M14 14L18 10M18 10V14M18 10H14"
+                  stroke="url(#gradienteLogo)"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <circle cx="7" cy="4" r="1.5" fill="url(#gradienteLogo)" />
+              </svg>
+            </div>
+          </div>
+        </div>
+        <span class="texto-logo"> Lorrane.<span class="texto-gradiente">&lt;/</span>ev </span>
+      </a>
+    </div>
+  </body>
+</html>
+
