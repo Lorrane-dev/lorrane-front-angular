@@ -6,5 +6,5 @@ separação de responsabilidades
 componentes sempre que for repetir muito
 Sempre usar o componente logo ou icon para a marca
 Lorrane.dev
-descrições em portugues
+descrições em portugues.
 
