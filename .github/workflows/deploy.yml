@@ -33,12 +33,12 @@ jobs:
         run: npm install
 
       - name: Build
-        run: npm run build -- --base-href /front-lorrane-angular/
+        run: npm run build -- --base-href /lorrane-front-angular/
 
       - name: Post-build (SPA support)
         run: |
-          cp dist/front-lorrane-angular/browser/index.html dist/front-lorrane-angular/browser/404.html
-          touch dist/front-lorrane-angular/browser/.nojekyll
+          cp dist/lorrane-front-angular/browser/index.html dist/lorrane-front-angular/browser/404.html
+          touch dist/lorrane-front-angular/browser/.nojekyll
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
@@ -46,7 +46,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dist/front-lorrane-angular/browser
+          path: dist/lorrane-front-angular/browser
 
   deploy:
     environment:

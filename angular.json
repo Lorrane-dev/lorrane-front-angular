@@ -6,7 +6,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "front-lorrane-angular": {
+    "lorrane-front-angular": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -30,9 +30,7 @@
               },
               "src/assets"
             ],
-            "styles": [
-              "src/styles.scss"
-            ]
+            "styles": ["src/styles.scss"]
           },
           "configurations": {
             "production": {
@@ -62,10 +60,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "front-lorrane-angular:build:production"
+              "buildTarget": "lorrane-front-angular:build:production"
             },
             "development": {
-              "buildTarget": "front-lorrane-angular:build:development"
+              "buildTarget": "lorrane-front-angular:build:development"
             }
           },
           "defaultConfiguration": "development"
