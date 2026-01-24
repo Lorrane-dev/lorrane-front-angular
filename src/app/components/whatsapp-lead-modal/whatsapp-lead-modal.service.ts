@@ -1,4 +1,5 @@
-import { Injectable, signal } from '@angular/core';
+import { inject, Injectable, signal } from '@angular/core';
+import { NotificacaoService } from '../../core/services/notificacao.service';
 
 export type WhatsappLeadSource = 'home' | 'servicos' | 'contato' | 'flutuante';
 export type WhatsappLeadUI = 'modal' | 'popup';
@@ -24,6 +25,7 @@ export interface WhatsappLeadRegistro extends WhatsappLeadDados {
 
 @Injectable({ providedIn: 'root' })
 export class WhatsappLeadModalService {
+  private readonly notificacaoService = inject(NotificacaoService);
   private readonly storageKeyDispensado = 'waLeadModalDispensado';
   private readonly storageKeyLeads = 'lorrane_leads';
 
@@ -66,6 +68,16 @@ export class WhatsappLeadModalService {
       this.fechar();
       return;
     }
+
+    // Envia notificação para o Lambda (assíncrono, não bloqueia o WhatsApp)
+    this.notificacaoService.enviarNotificacaoLead({
+      nome: dados.nome,
+      email: dados.email,
+      telefone: dados.telefone || '',
+      mensagem: dados.descricao,
+      origem: contexto.origem,
+    });
+
     this.salvarLead(contexto, dados);
     this.marcarDispensadoNaSessao();
     this.abrirWhatsapp(contexto, dados);

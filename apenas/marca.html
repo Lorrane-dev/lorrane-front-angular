@@ -46,38 +46,20 @@
 
       .brilho-fundo {
         position: absolute;
-        inset: 0;
-        border-radius: var(--raio);
-        background: var(--gradiente);
-        opacity: 0.2;
-        filter: blur(6px);
+        inset: -10px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(127, 0, 255, 0.3) 0%, rgba(59, 130, 246, 0) 70%);
+        filter: blur(10px);
         z-index: 0;
       }
 
-      .icone-principal {
+      .icone-png {
         position: relative;
-        width: 100%;
-        height: 100%;
-        border-radius: var(--raio);
-        background: var(--gradiente);
-        padding: 1px;
         z-index: 1;
-      }
-
-      .icone-background {
         width: 100%;
         height: 100%;
-        border-radius: var(--raio);
-        background: var(--cinza-escuro);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .icone-svg {
-        width: 60%;
-        height: 60%;
-        display: block;
+        object-fit: contain;
+        filter: drop-shadow(0 0 10px rgba(127, 0, 255, 0.3));
       }
 
       .logo-container {
@@ -111,65 +93,13 @@
     <div class="linha">
       <div class="icone-container" aria-label="Ícone Lorrane.dev">
         <div class="brilho-fundo"></div>
-        <div class="icone-principal">
-          <div class="icone-background">
-            <svg viewBox="0 0 24 24" fill="none" class="icone-svg" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <linearGradient id="gradienteIcone" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stop-color="hsl(270, 90%, 50%)" />
-                  <stop offset="100%" stop-color="hsl(217, 91%, 60%)" />
-                </linearGradient>
-              </defs>
-              <path
-                d="M7 4V17C7 18.1046 7.89543 19 9 19H18"
-                stroke="url(#gradienteIcone)"
-                stroke-width="2.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-              <path
-                d="M14 14L18 10M18 10V14M18 10H14"
-                stroke="url(#gradienteIcone)"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-              <circle cx="7" cy="4" r="1.5" fill="url(#gradienteIcone)" />
-            </svg>
-          </div>
-        </div>
+        <img src="https://s3.us-east-2.amazonaws.com/lorrane.dev-marca/logo.png" class="icone-png" alt="Lorrane.dev">
       </div>
 
       <a href="#home" class="logo-container" aria-label="Logo Lorrane.dev">
         <div class="icone-externo">
           <div class="brilho-fundo"></div>
-          <div class="icone-principal">
-            <div class="icone-background">
-              <svg viewBox="0 0 24 24" fill="none" class="icone-svg" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                  <linearGradient id="gradienteLogo" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stop-color="hsl(270, 90%, 50%)" />
-                    <stop offset="100%" stop-color="hsl(217, 91%, 60%)" />
-                  </linearGradient>
-                </defs>
-                <path
-                  d="M7 4V17C7 18.1046 7.89543 19 9 19H18"
-                  stroke="url(#gradienteLogo)"
-                  stroke-width="2.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <path
-                  d="M14 14L18 10M18 10V14M18 10H14"
-                  stroke="url(#gradienteLogo)"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <circle cx="7" cy="4" r="1.5" fill="url(#gradienteLogo)" />
-              </svg>
-            </div>
-          </div>
+          <img src="https://s3.us-east-2.amazonaws.com/lorrane.dev-marca/logo.png" class="icone-png" alt="Lorrane.dev">
         </div>
         <span class="texto-logo"> Lorrane.<span class="texto-gradiente">&lt;/</span>ev </span>
       </a>

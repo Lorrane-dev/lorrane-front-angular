@@ -7,7 +7,7 @@ import { Component, Input } from '@angular/core';
   styleUrl: './logo.scss',
 })
 export class LogoComponent {
-  @Input() tamanhoIcone: string = '40px';
-  @Input() tamanhoTexto: string = '1.25rem';
+  @Input() tamanhoIcone: string = '50px';
+  @Input() tamanhoTexto: string = '1.5rem';
   @Input() comLink: boolean = true;
 }

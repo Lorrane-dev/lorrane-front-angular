@@ -33,12 +33,6 @@ export class WhatsappLeadPopupComponent {
     this.whatsappLead.fechar();
   }
 
-  @HostListener('window:scroll')
-  protected aoRolarPagina() {
-    if (!this.whatsappLead.aberto() || this.whatsappLead.ui() !== 'popup') return;
-    this.whatsappLead.fechar();
-  }
-
   protected fechar() {
     this.whatsappLead.fechar();
   }

@@ -4,6 +4,7 @@
   z-index: 1000;
   background: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;
@@ -15,13 +16,21 @@
     justify-content: center;
     padding: 1rem;
   }
+
+  @media (pointer: coarse) {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
 }
 
 .popup {
   position: relative;
   width: min(320px, 100%);
   max-height: 80vh;
+  max-height: 80dvh;
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
   border-radius: 1.25rem;
   border: 1px solid rgba(255, 255, 255, 0.12);
   background: rgba(12, 18, 34, 0.98);
@@ -197,4 +206,3 @@
   font-size: 0.75rem;
   color: rgba(255, 255, 255, 0.4);
 }
-

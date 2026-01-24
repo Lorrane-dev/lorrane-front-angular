@@ -44,12 +44,6 @@ export class WhatsappLeadModalComponent {
     this.fechar();
   }
 
-  @HostListener('window:scroll')
-  protected aoRolarPagina() {
-    if (!this.whatsappLeadModal.aberto() || this.whatsappLeadModal.ui() !== 'modal') return;
-    this.fechar();
-  }
-
   protected pular() {
     this.whatsappLeadModal.pularParaWhatsapp();
   }
