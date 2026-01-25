@@ -40,8 +40,8 @@ export class NotificacaoService {
     };
 
     try {
-      await firstValueFrom(this.http.post(this.lambdaUrl, payload));
-      console.log('Notificação enviada com sucesso para o Lambda');
+      const resposta = await firstValueFrom(this.http.post(this.lambdaUrl, payload));
+      console.log('Resposta do Lambda (lead):', resposta);
     } catch (error) {
       console.error('Erro ao enviar notificação para o Lambda:', error);
       // Não lançamos o erro para não quebrar o fluxo do usuário (WhatsApp ainda deve abrir)
