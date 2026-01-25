@@ -13,7 +13,7 @@ export interface WhatsappLeadContexto {
 export interface WhatsappLeadDados {
   nome: string;
   telefone?: string;
-  email?: string;
+  email: string;
   descricao: string;
 }
 
@@ -108,7 +108,7 @@ export class WhatsappLeadModalService {
     partes.push('Meus dados:');
     partes.push(`Nome: ${dados.nome.trim()}`);
     if (telefoneLimpo) partes.push(`Telefone: ${telefoneLimpo}`);
-    if (dados.email?.trim()) partes.push(`E-mail: ${dados.email.trim()}`);
+    if (dados.email.trim()) partes.push(`E-mail: ${dados.email.trim()}`);
     partes.push('');
     partes.push('O que eu preciso:');
     partes.push(dados.descricao.trim());

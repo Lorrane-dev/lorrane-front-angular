@@ -23,7 +23,7 @@ export class WhatsappLeadModalComponent {
   protected readonly formulario = this.formBuilder.group({
     nome: ['', [Validators.required, Validators.minLength(2)]],
     telefone: ['', [Validators.required, WhatsappLeadModalComponent.validarTelefone]],
-    email: ['', [Validators.email]],
+    email: ['', [Validators.required, Validators.email]],
     descricao: ['', [Validators.required, Validators.minLength(10)]],
   });
 

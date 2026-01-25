@@ -17,7 +17,7 @@ export class WhatsappLeadPopupComponent {
   protected readonly formulario = this.formBuilder.group({
     nome: ['', [Validators.required, Validators.minLength(2)]],
     telefone: ['', [Validators.required]],
-    email: ['', [Validators.email]],
+    email: ['', [Validators.required, Validators.email]],
   });
 
   constructor() {

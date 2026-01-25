@@ -4,7 +4,7 @@ import { firstValueFrom } from 'rxjs';
 
 export interface DadosNotificacao {
   nome: string;
-  email?: string;
+  email: string;
   telefone: string;
   mensagem: string;
   origem?: string;
@@ -21,13 +21,18 @@ export class NotificacaoService {
    * Envia uma notificação de novo lead para o Lambda
    */
   async enviarNotificacaoLead(dados: DadosNotificacao): Promise<void> {
+    const emailLead = String(dados.email || '').trim();
+    if (!emailLead) {
+      return;
+    }
+
     const payload = {
-      para: 'lorrane@lorrane.dev', // O Lambda já está configurado para o admin, mas enviamos no para/dados conforme o contrato esperado
-      assunto: `Novo Lead: ${dados.nome}`,
-      tipoTemplate: 'confirmacao-lead', // Usamos o confirmacao-lead para disparar o fluxo completo no Lambda
+      para: emailLead,
+      assunto: 'Recebemos seu contato - Lorrane.dev',
+      tipoTemplate: 'confirmacao-lead',
       dados: {
         nome: dados.nome,
-        email: dados.email || 'Não informado',
+        email: emailLead,
         telefone: dados.telefone,
         mensagem: dados.mensagem,
         origem: dados.origem || 'Site Institucional',
