@@ -7,6 +7,7 @@ import {
   ValidationErrors,
   Validators,
 } from '@angular/forms';
+import { mascaraTelefone } from '../../core/utils/mascaras';
 import { WhatsappLeadModalService } from './whatsapp-lead-modal.service';
 
 @Component({
@@ -46,6 +47,14 @@ export class WhatsappLeadModalComponent {
 
   protected pular() {
     this.whatsappLeadModal.pularParaWhatsapp();
+  }
+
+  protected aoDigitarTelefone() {
+    const control = this.formulario.controls.telefone;
+    const valor = mascaraTelefone(String(control.value || ''));
+    if (valor !== control.value) {
+      control.setValue(valor, { emitEvent: false });
+    }
   }
 
   protected enviar() {

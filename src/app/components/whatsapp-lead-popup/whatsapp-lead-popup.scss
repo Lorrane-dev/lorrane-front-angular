@@ -161,6 +161,14 @@
   color: rgba(255, 255, 255, 0.3);
 }
 
+.erro {
+  color: rgba(255, 120, 120, 0.95);
+  font-size: 0.8rem;
+  line-height: 1.25;
+  margin-top: -0.25rem;
+  padding: 0 0.25rem;
+}
+
 .acoes {
   display: grid;
   gap: 0.5rem;

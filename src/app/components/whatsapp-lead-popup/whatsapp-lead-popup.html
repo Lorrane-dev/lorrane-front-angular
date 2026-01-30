@@ -42,6 +42,9 @@
           placeholder="Nome"
         />
       </div>
+      <span class="erro" *ngIf="formulario.controls.nome.touched && formulario.controls.nome.invalid">
+        Informe seu nome.
+      </span>
 
       <div class="input-wrap">
         <svg class="icone-campo" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -68,6 +71,9 @@
           placeholder="Email"
         />
       </div>
+      <span class="erro" *ngIf="formulario.controls.email.touched && formulario.controls.email.invalid">
+        E-mail inválido.
+      </span>
 
       <div class="input-wrap">
         <svg class="icone-campo" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -84,9 +90,13 @@
           type="tel"
           formControlName="telefone"
           autocomplete="tel"
-          placeholder="Telefone"
+          placeholder="(11) 99999-9999"
+          (input)="aoDigitarTelefone()"
         />
       </div>
+      <span class="erro" *ngIf="formulario.controls.telefone.touched && formulario.controls.telefone.invalid">
+        Informe um telefone válido.
+      </span>
 
       <div class="acoes">
         <button class="botao" type="submit">Ir para o WhatsApp</button>

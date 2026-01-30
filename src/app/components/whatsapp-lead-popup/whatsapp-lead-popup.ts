@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, effect, HostListener, inject } from '@angular/core';
-import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, ReactiveFormsModule, ValidationErrors, Validators } from '@angular/forms';
+import { mascaraTelefone } from '../../core/utils/mascaras';
 import { WhatsappLeadModalService } from '../whatsapp-lead-modal/whatsapp-lead-modal.service';
 
 @Component({
@@ -16,7 +17,7 @@ export class WhatsappLeadPopupComponent {
 
   protected readonly formulario = this.formBuilder.group({
     nome: ['', [Validators.required, Validators.minLength(2)]],
-    telefone: ['', [Validators.required]],
+    telefone: ['', [Validators.required, WhatsappLeadPopupComponent.validarTelefone]],
     email: ['', [Validators.required, Validators.email]],
   });
 
@@ -41,6 +42,14 @@ export class WhatsappLeadPopupComponent {
     this.whatsappLead.pularParaWhatsapp();
   }
 
+  protected aoDigitarTelefone() {
+    const control = this.formulario.controls.telefone;
+    const valor = mascaraTelefone(String(control.value || ''));
+    if (valor !== control.value) {
+      control.setValue(valor, { emitEvent: false });
+    }
+  }
+
   protected enviar() {
     if (this.formulario.invalid) {
       this.formulario.markAllAsTouched();
@@ -53,5 +62,13 @@ export class WhatsappLeadPopupComponent {
       email: valores.email || '',
       descricao: 'Quero mais informações.',
     });
+  }
+
+  private static validarTelefone(controle: AbstractControl): ValidationErrors | null {
+    const valor = String(controle.value || '');
+    const digits = valor.replace(/\D/g, '');
+    if (!digits) return null;
+    if (digits.length < 10) return { telefoneInvalido: true };
+    return null;
   }
 }

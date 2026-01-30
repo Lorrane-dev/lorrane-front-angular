@@ -44,7 +44,6 @@ export class NotificacaoService {
       console.log('Resposta do Lambda (lead):', resposta);
     } catch (error) {
       console.error('Erro ao enviar notificação para o Lambda:', error);
-      // Não lançamos o erro para não quebrar o fluxo do usuário (WhatsApp ainda deve abrir)
     }
   }
 }

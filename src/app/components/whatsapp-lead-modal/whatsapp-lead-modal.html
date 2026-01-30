@@ -96,6 +96,7 @@
             formControlName="telefone"
             autocomplete="tel"
             placeholder="(11) 99999-9999"
+            (input)="aoDigitarTelefone()"
           />
         </div>
         <span class="erro" *ngIf="formulario.controls.telefone.touched && formulario.controls.telefone.invalid">
