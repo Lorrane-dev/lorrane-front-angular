@@ -42,7 +42,10 @@
           placeholder="Nome"
         />
       </div>
-      <span class="erro" *ngIf="formulario.controls.nome.touched && formulario.controls.nome.invalid">
+      <span
+        class="erro"
+        *ngIf="formulario.controls.nome.touched && formulario.controls.nome.invalid"
+      >
         Informe seu nome.
       </span>
 
@@ -71,7 +74,10 @@
           placeholder="Email"
         />
       </div>
-      <span class="erro" *ngIf="formulario.controls.email.touched && formulario.controls.email.invalid">
+      <span
+        class="erro"
+        *ngIf="formulario.controls.email.touched && formulario.controls.email.invalid"
+      >
         E-mail inválido.
       </span>
 
@@ -94,7 +100,10 @@
           (input)="aoDigitarTelefone()"
         />
       </div>
-      <span class="erro" *ngIf="formulario.controls.telefone.touched && formulario.controls.telefone.invalid">
+      <span
+        class="erro"
+        *ngIf="formulario.controls.telefone.touched && formulario.controls.telefone.invalid"
+      >
         Informe um telefone válido.
       </span>
 
